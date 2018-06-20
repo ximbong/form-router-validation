@@ -7,20 +7,26 @@
 }
 
 a {
-  text-decoration: none;
   color: inherit;
 }
 
-form {
-  padding: 30px 20%;
+.wrapper {
+  width: 100vw;
+  height: 100vh;
   background: #454e57;
   color: #fbffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+form {
   font-family: "Roboto", sans-serif;
 }
 
 section {
+  padding: 10px 15%;
   color: #c7ced6;
-  padding: 30px 0;
 }
 
 section input {
