@@ -10,8 +10,9 @@ const Portfolio = () => {
         Prove you're IBM's next great designer by showing us who you are. What
         you've done. How you think. Tell us your story.
       </div>
-      <input type="url" name placeholder="Portfolio link*" />
+      <input type="url" placeholder="Portfolio link*" />
       <textarea name="name" placeholder="Anything else" defaultValue={""} />
+      <button className="submitButton">Submit</button>
     </section>
   );
 };
