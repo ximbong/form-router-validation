@@ -1,0 +1,15 @@
+.navBar {
+  display: flex;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #232120;
+}
+
+.navBar > li {
+  background: #48adf5;
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
