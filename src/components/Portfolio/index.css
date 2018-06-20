@@ -1,4 +1,4 @@
-section textarea {
+form textarea {
   min-width: 100%;
   min-height: 100px;
   border: 1px solid #78818a;
@@ -9,6 +9,6 @@ section textarea {
   margin-bottom: 30px;
 }
 
-section textarea:focus {
+form textarea:focus {
   border: 1px solid #48adf5;
 }

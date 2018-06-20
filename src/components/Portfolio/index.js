@@ -4,7 +4,7 @@ import "./index.css";
 
 const Portfolio = () => {
   return (
-    <section>
+    <form>
       <div className="sectionTitle">3.Portfolio</div>
       <div className="questions">
         Prove you're IBM's next great designer by showing us who you are. What
@@ -13,7 +13,7 @@ const Portfolio = () => {
       <input type="url" placeholder="Portfolio link*" />
       <textarea name="name" placeholder="Anything else" defaultValue={""} />
       <button className="submitButton">Submit</button>
-    </section>
+    </form>
   );
 };
 

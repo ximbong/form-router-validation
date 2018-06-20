@@ -8,7 +8,7 @@ class PersonalInfo extends Component {
   // }
   render() {
     return (
-      <section>
+      <form>
         <div className="sectionTitle">1. Personal information</div>
         <div className="basicInfo">
           <div className="leftCol">
@@ -41,7 +41,7 @@ class PersonalInfo extends Component {
           </div>
           <input type="text" placeholder="How did you hear about us" />
         </div>
-      </section>
+      </form>
     );
   }
 }

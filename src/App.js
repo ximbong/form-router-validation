@@ -20,13 +20,13 @@ class App extends Component {
     return (
       <Router>
         <div className="wrapper">
-          <form>
+          <div className="content">
             <Route path="/" component={NavBar} />
             <Route path="/" component={Title} />
             <Route path="/" exact={true} component={PersonalInfo} />
             <Route path="/part2" component={Skill} />
             <Route path="/part3" component={Portfolio} />
-          </form>
+          </div>
           <Footer />
         </div>
       </Router>

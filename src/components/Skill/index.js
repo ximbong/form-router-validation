@@ -4,7 +4,7 @@ import "./index.css";
 
 const Skill = () => {
   return (
-    <section>
+    <form>
       <div className="sectionTitle">2.Skills and location</div>
       <div className="questions">Which is your primary design discipline?*</div>
       <div className="custom-radios">
@@ -112,7 +112,7 @@ const Skill = () => {
           </div>
         </div>
       </div>
-    </section>
+    </form>
   );
 };
 
