@@ -1,0 +1,11 @@
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 200%;
+  font-weight: 700;
+}
+
+.sub-header {
+  font-size: 80%;
+  color: #c7ced6;
+}

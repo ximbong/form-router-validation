@@ -1,28 +1,58 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style-type: none;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+form {
+  padding: 30px 20%;
+  background: #454e57;
+  color: #fbffff;
+  font-family: "Roboto", sans-serif;
+}
+
+section {
+  color: #c7ced6;
+  padding: 30px 0;
+}
+
+section input {
+  margin-bottom: 30px;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #78818a;
+  height: 25px;
+  background: transparent !important;
+  color: #c7ced6;
+}
+
+.questions {
+  margin-bottom: 20px;
+  font-size: 90%;
+}
+
+.submitButton {
+  display: inline-block;
+  padding: 10px 35px;
+  background: #48adf5;
   color: white;
+  font-size: 100%;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-.App-title {
-  font-size: 1.5em;
+/* .invalid {
+  border-bottom: 2px solid red;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+.valid {
+  border-bottom: 1px solid #78818a;
+} */

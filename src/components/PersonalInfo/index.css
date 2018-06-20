@@ -1,0 +1,22 @@
+.sectionTitle {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  color: #fbffff;
+  border-bottom: 3px solid #48adf5;
+}
+
+.basicInfo {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 15px;
+}
+.addressInfo {
+  display: grid;
+  grid-template-columns: ;
+}
+
+.fourCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
