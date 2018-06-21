@@ -16,16 +16,43 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      personalInfo: {},
+      skill: {},
+      portfolio: {}
+    };
+  }
+
+  handleSubmit = (name, data) => {
+    this.setState({
+      [name]: data
+    });
+  };
+
   render() {
+    console.log(this.state);
+
     return (
       <Router>
         <div className="wrapper">
           <div className="content">
             <Route path="/" component={NavBar} />
             <Route path="/" component={Title} />
-            <Route path="/" exact={true} component={PersonalInfo} />
-            <Route path="/part2" component={Skill} />
-            <Route path="/part3" component={Portfolio} />
+            <Route
+              path="/"
+              exact={true}
+              render={() => <PersonalInfo handleSubmit={this.handleSubmit} />}
+            />
+            <Route
+              path="/part2"
+              render={() => <Skill handleSubmit={this.handleSubmit} />}
+            />
+            <Route
+              path="/part3"
+              render={() => <Portfolio handleSubmit={this.handleSubmit} />}
+            />
           </div>
           <Footer />
         </div>
