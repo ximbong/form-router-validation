@@ -5,6 +5,7 @@
 }
 
 .navBar > li {
+  font-size: 110%;
   background: #48adf5;
   flex-grow: 1;
   flex-basis: 0;
@@ -12,4 +13,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 500;
 }
