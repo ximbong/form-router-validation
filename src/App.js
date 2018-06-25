@@ -26,6 +26,8 @@ class App extends Component {
   };
 
   render() {
+    const { personalInfo, skill, portfolio } = this.state;
+
     return (
       <Router>
         <div className="wrapper">
@@ -35,15 +37,24 @@ class App extends Component {
             <Route
               path="/"
               exact={true}
-              render={() => <PersonalInfo handleSubmit={this.handleSubmit} />}
+              render={() => (
+                <PersonalInfo
+                  data={personalInfo}
+                  handleSubmit={this.handleSubmit}
+                />
+              )}
             />
             <Route
               path="/part2"
-              render={() => <Skill handleSubmit={this.handleSubmit} />}
+              render={() => (
+                <Skill data={skill} handleSubmit={this.handleSubmit} />
+              )}
             />
             <Route
               path="/part3"
-              render={() => <Portfolio handleSubmit={this.handleSubmit} />}
+              render={() => (
+                <Portfolio data={portfolio} handleSubmit={this.handleSubmit} />
+              )}
             />
           </div>
           <Footer />
