@@ -7,16 +7,16 @@ class PersonalInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullname: "",
-      email: "",
-      email2: "",
-      address: "",
-      phone: "",
-      country: "",
-      state: "",
-      city: "",
-      zipcode: "",
-      notice: ""
+      fullname: props.data.fullname || "",
+      email: props.data.email || "",
+      email2: props.data.email2 || "",
+      address: props.data.address || "",
+      phone: props.data.phone || "",
+      country: props.data.country || "",
+      state: props.data.state || "",
+      city: props.data.city || "",
+      zipcode: props.data.zipcode || "",
+      notice: props.data.notice || ""
     };
   }
 
@@ -70,6 +70,8 @@ class PersonalInfo extends Component {
   };
 
   render() {
+    console.log(this.state);
+
     const {
       fullname,
       email,
@@ -169,7 +171,7 @@ class PersonalInfo extends Component {
           />
         </div>
         <button className="submitButton" disabled={!formValidity}>
-          {formValidity ? <Link to="/part2">Next</Link> : "Next"}
+          {formValidity ? <Link to="/part2">Next</Link> : <span>Next</span>}
         </button>
       </form>
     );

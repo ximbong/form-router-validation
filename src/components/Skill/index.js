@@ -9,16 +9,16 @@ class Skill extends Component {
     this.state = {
       selected_option: "option_1",
       discipline: {
-        discipline_1: false,
-        discipline_2: false,
-        discipline_3: false,
-        discipline_4: false
+        discipline_1: props.data.discipline_1 || false,
+        discipline_2: props.data.discipline_2 || false,
+        discipline_3: props.data.discipline_3 || false,
+        discipline_4: props.data.discipline_4 || false
       },
       location: {
-        vietnam: false,
-        thailand: false,
-        singapore: false,
-        malaysia: false
+        vietnam: props.data.vietnam || false,
+        thailand: props.data.thailand || false,
+        singapore: props.data.singapore || false,
+        malaysia: props.data.malaysia || false
       }
     };
   }
@@ -38,6 +38,7 @@ class Skill extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.props.handleSubmit("skill", this.state);
   };
 
   render() {
@@ -202,7 +203,7 @@ class Skill extends Component {
           </div>
         </div>
         <button className="submitButton" disabled={!formValidity}>
-          {formValidity ? <Link to="/part3">Next</Link> : "Next"}
+          {formValidity ? <Link to="/part3">Next</Link> : <span>Next</span>}
         </button>
       </form>
     );

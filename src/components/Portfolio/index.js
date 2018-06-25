@@ -6,14 +6,20 @@ class Portfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: ""
+      url: props.data.url || "",
+      otherInfo: props.data.url || ""
     };
   }
 
   handleChange = event => {
     this.setState({
-      url: event.target.value
+      [event.target.id]: event.target.value
     });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.handleSubmit("portfolio", this.state);
   };
 
   render() {
@@ -24,7 +30,7 @@ class Portfolio extends Component {
     );
 
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className="sectionTitle">3. Portfolio</div>
         <div className="questions">
           Prove you're IBM's next great designer by showing us who you are. What
@@ -34,8 +40,9 @@ class Portfolio extends Component {
           placeholder="Portfolio link*"
           onChange={this.handleChange}
           value={this.state.url}
+          id="url"
         />
-        <textarea placeholder="Anything else" />
+        <textarea placeholder="Anything else" id="otherInfo" />
         <button className="submitButton" disabled={!formValidity}>
           Submit
         </button>
