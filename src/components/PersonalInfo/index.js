@@ -39,10 +39,9 @@ class PersonalInfo extends Component {
     notice
   }) => {
     const fullnameTest = /^(([A-Z]?[a-z]*)\s)*([A-Z][a-z]*)$/;
-    const emailTest = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const phoneTest = /^(\+?\d{0,3}\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
+    const emailTest = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const phoneTest = /^(\+?\d{0,3}\s?)?(\(\d{3}\)|\d{3})[\s-]?\d{3}[\s-]?\d{4}$/;
     const countryTest = /^[a-zA-Z]{2,}$/;
-    const stateTest = /^([A-Z][a-z]+)(\s[A-Z][a-z]*)*$/;
     const cityTest = /^[a-zA-Z]{2,}$/;
     const zipcodeTest = /\d{4,8}/;
 

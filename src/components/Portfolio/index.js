@@ -18,6 +18,7 @@ class Portfolio extends Component {
 
   render() {
     const url = this.state.url;
+    // eslint-disable-next-line
     const formValidity = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(
       url
     );
