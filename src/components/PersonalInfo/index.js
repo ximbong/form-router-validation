@@ -4,26 +4,25 @@ import { Link } from "react-router-dom";
 import "./index.css";
 
 class PersonalInfo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fullname: props.data.fullname || "",
-      email: props.data.email || "",
-      email2: props.data.email2 || "",
-      address: props.data.address || "",
-      phone: props.data.phone || "",
-      country: props.data.country || "",
-      state: props.data.state || "",
-      city: props.data.city || "",
-      zipcode: props.data.zipcode || "",
-      notice: props.data.notice || ""
-    };
-  }
-
   handleChange = event => {
-    const newState = { ...this.state, [event.target.id]: event.target.value };
+    const fieldID = event.target.id;
+    const newInfo = {
+      ...this.props.data.info,
+      [fieldID]: event.target.value
+    };
+    const newState = { ...this.props.data, info: newInfo };
 
-    this.setState(newState);
+    this.props.handleSubmit("personalInfo", newState);
+  };
+
+  handleClickStatus = event => {
+    const fieldID = event.target.id;
+    const newUserClick = {
+      ...this.props.data.userClick,
+      [fieldID]: true
+    };
+
+    const newState = { ...this.props.data, userClick: newUserClick };
     this.props.handleSubmit("personalInfo", newState);
   };
 
@@ -61,8 +60,8 @@ class PersonalInfo extends Component {
     return errors;
   };
 
-  handleValidEffect = (value, bool) => {
-    return !value || bool ? "valid" : "invalid";
+  handleValidEffect = (userClick, truthy) => {
+    return !userClick || truthy ? "valid" : "invalid";
   };
 
   handleSubmit = event => {
@@ -70,22 +69,23 @@ class PersonalInfo extends Component {
   };
 
   render() {
-    console.log(this.state);
-
     const {
-      fullname,
-      email,
-      email2,
-      address,
-      phone,
-      country,
-      state,
-      city,
-      zipcode,
-      notice
-    } = this.state;
+      info: {
+        fullname,
+        email,
+        email2,
+        address,
+        phone,
+        country,
+        state,
+        city,
+        zipcode,
+        notice
+      },
+      userClick
+    } = this.props.data;
 
-    const errors = this.validate(this.state);
+    const errors = this.validate(this.props.data.info);
     const formValidity = !Object.values(errors).some(e => e === false);
 
     return (
@@ -97,22 +97,31 @@ class PersonalInfo extends Component {
               id="fullname"
               placeholder="Full name*"
               value={fullname}
+              onFocus={this.handleClickStatus}
               onChange={this.handleChange}
-              className={this.handleValidEffect(fullname, errors.fullname)}
+              className={this.handleValidEffect(
+                userClick.fullname,
+                errors.fullname
+              )}
             />
             <input
               id="email"
               placeholder="Email*"
               value={email}
+              onFocus={this.handleClickStatus}
               onChange={this.handleChange}
-              className={this.handleValidEffect(email, errors.email)}
+              className={this.handleValidEffect(userClick.email, errors.email)}
             />
             <input
               id="email2"
               placeholder="Re-enter email*"
               value={email2}
+              onFocus={this.handleClickStatus}
               onChange={this.handleChange}
-              className={this.handleValidEffect(email2, errors.email2)}
+              className={this.handleValidEffect(
+                userClick.email2,
+                errors.email2
+              )}
             />
           </div>
           <div className="rightCol">
@@ -120,8 +129,9 @@ class PersonalInfo extends Component {
               id="phone"
               placeholder="Phone*"
               value={phone}
+              onFocus={this.handleClickStatus}
               onChange={this.handleChange}
-              className={this.handleValidEffect(phone, errors.phone)}
+              className={this.handleValidEffect(userClick.phone, errors.phone)}
             />
           </div>
         </div>
@@ -130,42 +140,57 @@ class PersonalInfo extends Component {
             id="address"
             placeholder="Address*"
             value={address}
+            onFocus={this.handleClickStatus}
             onChange={this.handleChange}
-            className={this.handleValidEffect(address, errors.address)}
+            className={this.handleValidEffect(
+              userClick.address,
+              errors.address
+            )}
           />
           <div className="fourCols">
             <input
               id="country"
               placeholder="Country*"
               value={country}
+              onFocus={this.handleClickStatus}
               onChange={this.handleChange}
-              className={this.handleValidEffect(country, errors.country)}
+              className={this.handleValidEffect(
+                userClick.country,
+                errors.country
+              )}
             />
             <input
               id="state"
               placeholder="State*"
               value={state}
+              onFocus={this.handleClickStatus}
               onChange={this.handleChange}
-              className={this.handleValidEffect(state, errors.state)}
+              className={this.handleValidEffect(userClick.state, errors.state)}
             />
             <input
               id="city"
               placeholder="City*"
               value={city}
+              onFocus={this.handleClickStatus}
               onChange={this.handleChange}
-              className={this.handleValidEffect(city, errors.city)}
+              className={this.handleValidEffect(userClick.city, errors.city)}
             />
             <input
               id="zipcode"
               placeholder="Zip code*"
               value={zipcode}
+              onFocus={this.handleClickStatus}
               onChange={this.handleChange}
-              className={this.handleValidEffect(zipcode, errors.zipcode)}
+              className={this.handleValidEffect(
+                userClick.zipcode,
+                errors.zipcode
+              )}
             />
           </div>
           <input
             id="notice"
             placeholder="How did you hear about us"
+            onFocus={this.handleClickStatus}
             value={notice}
             onChange={this.handleChange}
           />

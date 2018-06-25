@@ -13,13 +13,51 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      personalInfo: {},
-      skill: {
-        selected_option: "",
-        discipline: {},
-        location: {}
+      personalInfo: {
+        info: {
+          fullname: "",
+          email: "",
+          email2: "",
+          address: "",
+          phone: "",
+          country: "",
+          state: "",
+          city: "",
+          zipcode: "",
+          notice: ""
+        },
+        userClick: {
+          fullname: false,
+          email: false,
+          email2: false,
+          address: false,
+          phone: false,
+          country: false,
+          state: false,
+          city: false,
+          zipcode: false,
+          notice: false
+        }
       },
-      portfolio: {}
+      skill: {
+        selected_option: "option_1",
+        discipline: {
+          discipline_1: false,
+          discipline_2: false,
+          discipline_3: false,
+          discipline_4: false
+        },
+        location: {
+          vietnam: false,
+          thailand: false,
+          singapore: false,
+          malaysia: false
+        }
+      },
+      portfolio: {
+        url: "",
+        otherInfo: ""
+      }
     };
   }
 

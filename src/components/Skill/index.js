@@ -4,42 +4,23 @@ import { Link } from "react-router-dom";
 import "./index.css";
 
 class Skill extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected_option: props.data.selected_option || "option_1",
-      discipline: {
-        discipline_1: props.data.discipline.discipline_1 || false,
-        discipline_2: props.data.discipline.discipline_2 || false,
-        discipline_3: props.data.discipline.discipline_3 || false,
-        discipline_4: props.data.discipline.discipline_4 || false
-      },
-      location: {
-        vietnam: props.data.location.vietnam || false,
-        thailand: props.data.location.thailand || false,
-        singapore: props.data.location.singapore || false,
-        malaysia: props.data.location.malaysia || false
-      }
-    };
-  }
-
   changeID = event => {
-    const newState = { ...this.state, selected_option: event.target.value };
+    const newState = {
+      ...this.props.data,
+      selected_option: event.target.value
+    };
 
-    this.setState(newState);
     this.props.handleSubmit("skill", newState);
-    // console.log(this.state);
   };
 
   handleCheck = (event, category) => {
     const fieldID = event.target.id;
     const proxy = {
-      ...this.state[category],
-      [fieldID]: !this.state[category][fieldID] //negation of previous checked state
+      ...this.props.data[category],
+      [fieldID]: !this.props.data[category][fieldID] //negation of previous checked state
     };
-    const newState = { ...this.state, [category]: proxy };
+    const newState = { ...this.props.data, [category]: proxy };
 
-    this.setState(newState);
     this.props.handleSubmit("skill", newState);
   };
 
@@ -48,8 +29,7 @@ class Skill extends Component {
   };
 
   render() {
-    const { selected_option, discipline, location } = this.state;
-
+    const { selected_option, discipline, location } = this.props.data;
     const formValidity = Object.values(location).some(e => e === true);
 
     return (
@@ -65,7 +45,7 @@ class Skill extends Component {
               id="option_1"
               value="option_1"
               onChange={this.changeID}
-              checked={this.state.selected_option === "option_1"}
+              checked={selected_option === "option_1"}
             />
             <label htmlFor="option_1">
               <span>Option 1</span>
@@ -77,7 +57,7 @@ class Skill extends Component {
               id="option_2"
               value="option_2"
               onChange={this.changeID}
-              checked={this.state.selected_option === "option_2"}
+              checked={selected_option === "option_2"}
             />
             <label htmlFor="option_2">
               <span>Option 2</span>
@@ -89,7 +69,7 @@ class Skill extends Component {
               id="option_3"
               value="option_3"
               onChange={this.changeID}
-              checked={this.state.selected_option === "option_3"}
+              checked={selected_option === "option_3"}
             />
             <label htmlFor="option_3">
               <span>Option 3</span>
@@ -101,7 +81,7 @@ class Skill extends Component {
               id="option_4"
               value="option_4"
               onChange={this.changeID}
-              checked={this.state.selected_option === "option_4"}
+              checked={selected_option === "option_4"}
             />
             <label htmlFor="option_4">
               <span>Option 4</span>

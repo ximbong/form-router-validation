@@ -3,18 +3,12 @@ import React, { Component } from "react";
 import "./index.css";
 
 class Portfolio extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      url: props.data.url || "",
-      otherInfo: props.data.otherInfo || ""
-    };
-  }
-
   handleChange = event => {
-    const newState = { ...this.state, [event.target.id]: event.target.value };
+    const newState = {
+      ...this.props.data,
+      [event.target.id]: event.target.value
+    };
 
-    this.setState(newState);
     this.props.handleSubmit("portfolio", newState);
   };
 
@@ -23,7 +17,7 @@ class Portfolio extends Component {
   };
 
   render() {
-    const url = this.state.url;
+    const { url, otherInfo } = this.props.data;
     // eslint-disable-next-line
     const formValidity = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(
       url
@@ -39,13 +33,13 @@ class Portfolio extends Component {
         <input
           placeholder="Portfolio link*"
           onChange={this.handleChange}
-          value={this.state.url}
+          value={url}
           id="url"
         />
         <textarea
           placeholder="Anything else"
           onChange={this.handleChange}
-          value={this.state.otherInfo}
+          value={otherInfo}
           id="otherInfo"
         />
         <button className="submitButton" disabled={!formValidity}>
