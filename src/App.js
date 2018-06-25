@@ -14,7 +14,11 @@ class App extends Component {
     super(props);
     this.state = {
       personalInfo: {},
-      skill: {},
+      skill: {
+        selected_option: "",
+        discipline: {},
+        location: {}
+      },
       portfolio: {}
     };
   }

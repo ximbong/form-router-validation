@@ -7,19 +7,19 @@ class Portfolio extends Component {
     super(props);
     this.state = {
       url: props.data.url || "",
-      otherInfo: props.data.url || ""
+      otherInfo: props.data.otherInfo || ""
     };
   }
 
   handleChange = event => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
+    const newState = { ...this.state, [event.target.id]: event.target.value };
+
+    this.setState(newState);
+    this.props.handleSubmit("portfolio", newState);
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.handleSubmit("portfolio", this.state);
   };
 
   render() {
@@ -42,9 +42,14 @@ class Portfolio extends Component {
           value={this.state.url}
           id="url"
         />
-        <textarea placeholder="Anything else" id="otherInfo" />
+        <textarea
+          placeholder="Anything else"
+          onChange={this.handleChange}
+          value={this.state.otherInfo}
+          id="otherInfo"
+        />
         <button className="submitButton" disabled={!formValidity}>
-          Submit
+          <span>Submit</span>
         </button>
       </form>
     );

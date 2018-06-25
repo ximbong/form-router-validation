@@ -7,42 +7,48 @@ class Skill extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected_option: "option_1",
+      selected_option: props.data.selected_option || "option_1",
       discipline: {
-        discipline_1: props.data.discipline_1 || false,
-        discipline_2: props.data.discipline_2 || false,
-        discipline_3: props.data.discipline_3 || false,
-        discipline_4: props.data.discipline_4 || false
+        discipline_1: props.data.discipline.discipline_1 || false,
+        discipline_2: props.data.discipline.discipline_2 || false,
+        discipline_3: props.data.discipline.discipline_3 || false,
+        discipline_4: props.data.discipline.discipline_4 || false
       },
       location: {
-        vietnam: props.data.vietnam || false,
-        thailand: props.data.thailand || false,
-        singapore: props.data.singapore || false,
-        malaysia: props.data.malaysia || false
+        vietnam: props.data.location.vietnam || false,
+        thailand: props.data.location.thailand || false,
+        singapore: props.data.location.singapore || false,
+        malaysia: props.data.location.malaysia || false
       }
     };
   }
 
   changeID = event => {
-    this.setState({ selected_option: event.target.value });
+    const newState = { ...this.state, selected_option: event.target.value };
+
+    this.setState(newState);
+    this.props.handleSubmit("skill", newState);
+    // console.log(this.state);
   };
 
-  handleCheck = (event, type) => {
-    const proxy = { ...this.state[type] };
-    proxy[event.target.id] = !this.state[type][event.target.id];
+  handleCheck = (event, category) => {
+    const fieldID = event.target.id;
+    const proxy = {
+      ...this.state[category],
+      [fieldID]: !this.state[category][fieldID] //negation of previous checked state
+    };
+    const newState = { ...this.state, [category]: proxy };
 
-    this.setState({
-      [type]: proxy
-    });
+    this.setState(newState);
+    this.props.handleSubmit("skill", newState);
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.handleSubmit("skill", this.state);
   };
 
   render() {
-    const { location } = this.state;
+    const { selected_option, discipline, location } = this.state;
 
     const formValidity = Object.values(location).some(e => e === true);
 
@@ -113,7 +119,7 @@ class Skill extends Component {
                 <input
                   type="checkbox"
                   id="discipline_1"
-                  value={this.state.discipline_1}
+                  checked={discipline.discipline_1}
                   onChange={e => this.handleCheck(e, "discipline")}
                 />
                 <span className="checkmark" />
@@ -123,7 +129,7 @@ class Skill extends Component {
                 <input
                   type="checkbox"
                   id="discipline_2"
-                  value={this.state.discipline_2}
+                  checked={discipline.discipline_2}
                   onChange={e => this.handleCheck(e, "discipline")}
                 />
                 <span className="checkmark" />
@@ -133,7 +139,7 @@ class Skill extends Component {
                 <input
                   type="checkbox"
                   id="discipline_3"
-                  value={this.state.discipline_3}
+                  checked={discipline.discipline_3}
                   onChange={e => this.handleCheck(e, "discipline")}
                 />
                 <span className="checkmark" />
@@ -143,7 +149,7 @@ class Skill extends Component {
                 <input
                   type="checkbox"
                   id="discipline_4"
-                  value={this.state.discipline_4}
+                  checked={discipline.discipline_4}
                   onChange={e => this.handleCheck(e, "discipline")}
                 />
                 <span className="checkmark" />
@@ -164,7 +170,7 @@ class Skill extends Component {
                 <input
                   type="checkbox"
                   id="vietnam"
-                  value={this.state.vietnam}
+                  checked={location.vietnam}
                   onChange={e => this.handleCheck(e, "location")}
                 />
                 <span className="checkmark" />
@@ -174,7 +180,7 @@ class Skill extends Component {
                 <input
                   type="checkbox"
                   id="thailand"
-                  value={this.state.thailand}
+                  checked={location.thailand}
                   onChange={e => this.handleCheck(e, "location")}
                 />
                 <span className="checkmark" />
@@ -184,7 +190,7 @@ class Skill extends Component {
                 <input
                   type="checkbox"
                   id="malaysia"
-                  value={this.state.malaysia}
+                  checked={location.malaysia}
                   onChange={e => this.handleCheck(e, "location")}
                 />
                 <span className="checkmark" />
@@ -194,7 +200,7 @@ class Skill extends Component {
                 <input
                   type="checkbox"
                   id="singapore"
-                  value={this.state.singapore}
+                  checked={location.singapore}
                   onChange={e => this.handleCheck(e, "location")}
                 />
                 <span className="checkmark" />

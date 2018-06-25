@@ -21,9 +21,10 @@ class PersonalInfo extends Component {
   }
 
   handleChange = event => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
+    const newState = { ...this.state, [event.target.id]: event.target.value };
+
+    this.setState(newState);
+    this.props.handleSubmit("personalInfo", newState);
   };
 
   validate = ({
@@ -66,7 +67,6 @@ class PersonalInfo extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.handleSubmit("personalInfo", this.state);
   };
 
   render() {
