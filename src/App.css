@@ -47,7 +47,7 @@ form input {
 
 .submitButton {
   display: inline-block;
-  padding: 10px 35px;
+
   background: #48adf5;
   color: white;
   font-size: 100%;
@@ -59,6 +59,11 @@ form input {
   background: #f1f1f1;
   cursor: not-allowed;
   color: grey;
+}
+
+.submitButton > * {
+  display: inline-block;
+  padding: 10px 35px;
 }
 
 .invalid {
