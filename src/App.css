@@ -50,12 +50,12 @@ form input {
 
 .submitButton {
   display: inline-block;
-
   background: #48adf5;
   color: white;
   font-size: 100%;
   font-weight: 600;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .submitButton:disabled {
@@ -75,4 +75,12 @@ form input {
 
 .valid {
   border-bottom: 1px solid #78818a;
+}
+
+.previous {
+  float: left;
+}
+
+.next {
+  float: right;
 }
