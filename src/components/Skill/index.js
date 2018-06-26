@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import RadioButtonField from "../RadioButtonField";
+import CheckboxField from "../CheckboxField";
+
 import "./index.css";
 
 class Skill extends Component {
@@ -39,54 +42,33 @@ class Skill extends Component {
           Which is your primary design discipline?*
         </div>
         <div className="custom-radios">
-          <div>
-            <input
-              type="radio"
-              id="option_1"
-              value="option_1"
-              onChange={this.changeID}
-              checked={selected_option === "option_1"}
-            />
-            <label htmlFor="option_1">
-              <span>Option 1</span>
-            </label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="option_2"
-              value="option_2"
-              onChange={this.changeID}
-              checked={selected_option === "option_2"}
-            />
-            <label htmlFor="option_2">
-              <span>Option 2</span>
-            </label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="option_3"
-              value="option_3"
-              onChange={this.changeID}
-              checked={selected_option === "option_3"}
-            />
-            <label htmlFor="option_3">
-              <span>Option 3</span>
-            </label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="option_4"
-              value="option_4"
-              onChange={this.changeID}
-              checked={selected_option === "option_4"}
-            />
-            <label htmlFor="option_4">
-              <span>Option 4</span>
-            </label>
-          </div>
+          <RadioButtonField
+            text="Option 1"
+            id="option_1"
+            changeID={this.changeID}
+            selected_option={selected_option}
+          />
+
+          <RadioButtonField
+            text="Option 2"
+            id="option_2"
+            changeID={this.changeID}
+            selected_option={selected_option}
+          />
+
+          <RadioButtonField
+            text="Option 3"
+            id="option_3"
+            changeID={this.changeID}
+            selected_option={selected_option}
+          />
+
+          <RadioButtonField
+            text="Option 4"
+            id="option_4"
+            changeID={this.changeID}
+            selected_option={selected_option}
+          />
         </div>
         <div className="twoCols">
           <div className="leftCol">
@@ -94,46 +76,34 @@ class Skill extends Component {
               Do you have experience with any other disciplines?
             </div>
             <div className="checkboxDiv">
-              <label className="label">
-                Discipline 1
-                <input
-                  type="checkbox"
-                  id="discipline_1"
-                  checked={discipline.discipline_1}
-                  onChange={e => this.handleCheck(e, "discipline")}
-                />
-                <span className="checkmark" />
-              </label>
-              <label className="label">
-                Discipline 2
-                <input
-                  type="checkbox"
-                  id="discipline_2"
-                  checked={discipline.discipline_2}
-                  onChange={e => this.handleCheck(e, "discipline")}
-                />
-                <span className="checkmark" />
-              </label>
-              <label className="label">
-                Discipline 3
-                <input
-                  type="checkbox"
-                  id="discipline_3"
-                  checked={discipline.discipline_3}
-                  onChange={e => this.handleCheck(e, "discipline")}
-                />
-                <span className="checkmark" />
-              </label>
-              <label className="label">
-                Discipline 4
-                <input
-                  type="checkbox"
-                  id="discipline_4"
-                  checked={discipline.discipline_4}
-                  onChange={e => this.handleCheck(e, "discipline")}
-                />
-                <span className="checkmark" />
-              </label>
+              <CheckboxField
+                text="Discipline 1"
+                category="discipline"
+                data={discipline}
+                id="discipline_1"
+                handleCheck={this.handleCheck}
+              />
+              <CheckboxField
+                text="Discipline 2"
+                category="discipline"
+                data={discipline}
+                id="discipline_2"
+                handleCheck={this.handleCheck}
+              />
+              <CheckboxField
+                text="Discipline 3"
+                category="discipline"
+                data={discipline}
+                id="discipline_3"
+                handleCheck={this.handleCheck}
+              />
+              <CheckboxField
+                text="Discipline 4"
+                category="discipline"
+                data={discipline}
+                id="discipline_4"
+                handleCheck={this.handleCheck}
+              />
             </div>
           </div>
           <div className="rightCol">
@@ -146,46 +116,34 @@ class Skill extends Component {
               <b> You have to choose at least one.</b>
             </div>
             <div className="checkboxDiv">
-              <label className="label">
-                Vietnam
-                <input
-                  type="checkbox"
-                  id="vietnam"
-                  checked={location.vietnam}
-                  onChange={e => this.handleCheck(e, "location")}
-                />
-                <span className="checkmark" />
-              </label>
-              <label className="label">
-                Thailand
-                <input
-                  type="checkbox"
-                  id="thailand"
-                  checked={location.thailand}
-                  onChange={e => this.handleCheck(e, "location")}
-                />
-                <span className="checkmark" />
-              </label>
-              <label className="label">
-                Malaysia
-                <input
-                  type="checkbox"
-                  id="malaysia"
-                  checked={location.malaysia}
-                  onChange={e => this.handleCheck(e, "location")}
-                />
-                <span className="checkmark" />
-              </label>
-              <label className="label">
-                Singapore
-                <input
-                  type="checkbox"
-                  id="singapore"
-                  checked={location.singapore}
-                  onChange={e => this.handleCheck(e, "location")}
-                />
-                <span className="checkmark" />
-              </label>
+              <CheckboxField
+                text="Vietnam"
+                category="location"
+                data={location}
+                id="vietnam"
+                handleCheck={this.handleCheck}
+              />
+              <CheckboxField
+                text="Thailand"
+                category="location"
+                data={location}
+                id="thailand"
+                handleCheck={this.handleCheck}
+              />
+              <CheckboxField
+                text="Malaysia"
+                category="location"
+                data={location}
+                id="malaysia"
+                handleCheck={this.handleCheck}
+              />
+              <CheckboxField
+                text="Singapore"
+                category="location"
+                data={location}
+                id="singapore"
+                handleCheck={this.handleCheck}
+              />
             </div>
           </div>
         </div>
