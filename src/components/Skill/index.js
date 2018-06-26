@@ -124,28 +124,28 @@ class Skill extends Component {
                 text="Vietnam"
                 category="location"
                 data={location}
-                id="vietnam"
+                id="Vietnam"
                 handleCheck={this.handleCheck}
               />
               <CheckboxField
                 text="Thailand"
                 category="location"
                 data={location}
-                id="thailand"
+                id="Thailand"
                 handleCheck={this.handleCheck}
               />
               <CheckboxField
                 text="Malaysia"
                 category="location"
                 data={location}
-                id="malaysia"
+                id="Malaysia"
                 handleCheck={this.handleCheck}
               />
               <CheckboxField
                 text="Singapore"
                 category="location"
                 data={location}
-                id="singapore"
+                id="Singapore"
                 handleCheck={this.handleCheck}
               />
             </div>
