@@ -53,7 +53,7 @@ class Portfolio extends Component {
           <Link to="/form-router-validation/part2">Previous</Link>
         </button>
         <button className="submitButton next" disabled={!validity}>
-          <span>Submit</span>
+          <Link to="/summary">Submit</Link>
         </button>
       </form>
     );
