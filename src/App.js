@@ -57,7 +57,8 @@ class App extends Component {
       portfolio: {
         url: "",
         otherInfo: ""
-      }
+      },
+      current_page: 1
     };
   }
 
@@ -67,14 +68,22 @@ class App extends Component {
     });
   };
 
-  render() {
-    const { personalInfo, skill, portfolio } = this.state;
+  handlePaging = num => {
+    this.setState({
+      current_page: num
+    });
+  };
 
+  render() {
+    const { personalInfo, skill, portfolio, current_page } = this.state;
     return (
       <Router>
         <div className="wrapper">
           <div className="content">
-            <Route path="/" component={NavBar} />
+            <Route
+              path="/"
+              render={() => <NavBar current_page={current_page} />}
+            />
             <Route path="/" component={Title} />
             <Route
               path="/"
@@ -83,19 +92,28 @@ class App extends Component {
                 <PersonalInfo
                   data={personalInfo}
                   handleSubmit={this.handleSubmit}
+                  handlePaging={this.handlePaging}
                 />
               )}
             />
             <Route
               path="/part2"
               render={() => (
-                <Skill data={skill} handleSubmit={this.handleSubmit} />
+                <Skill
+                  data={skill}
+                  handleSubmit={this.handleSubmit}
+                  handlePaging={this.handlePaging}
+                />
               )}
             />
             <Route
               path="/part3"
               render={() => (
-                <Portfolio data={portfolio} handleSubmit={this.handleSubmit} />
+                <Portfolio
+                  data={portfolio}
+                  handleSubmit={this.handleSubmit}
+                  handlePaging={this.handlePaging}
+                />
               )}
             />
           </div>
