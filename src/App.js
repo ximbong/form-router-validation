@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import Title from "./components/Title";
 import PersonalInfo from "./components/PersonalInfo";
 import Skill from "./components/Skill";
 import Portfolio from "./components/Portfolio";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import Summary from "./components/Summary";
 
 import "./App.css";
 
@@ -116,8 +118,18 @@ class App extends Component {
                 />
               )}
             />
+            <Route
+              path="/summary"
+              render={() => (
+                <Summary
+                  personalInfo={personalInfo.info}
+                  location={skill.location}
+                  url={portfolio.url}
+                />
+              )}
+            />
           </div>
-          <Footer />
+          <Route path="/form-router-validation/" component={Footer} />
         </div>
       </Router>
     );

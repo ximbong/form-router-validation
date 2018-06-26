@@ -1,0 +1,18 @@
+.summary {
+  padding: 40px 10%;
+}
+
+section {
+  padding: 30px;
+}
+
+.title {
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+section > div:not(.title) {
+  margin-left: 10px;
+  font-weight: 300;
+}
