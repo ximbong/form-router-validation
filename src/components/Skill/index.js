@@ -7,6 +7,10 @@ import CheckboxField from "../CheckboxField";
 import "./index.css";
 
 class Skill extends Component {
+  componentDidMount() {
+    this.props.handlePaging(2);
+  }
+
   changeID = event => {
     const newState = {
       ...this.props.data,
@@ -147,7 +151,10 @@ class Skill extends Component {
             </div>
           </div>
         </div>
-        <button className="submitButton" disabled={!formValidity}>
+        <button className="submitButton previous">
+          <Link to="/">Previous</Link>
+        </button>
+        <button className="submitButton next" disabled={!formValidity}>
           {formValidity ? <Link to="/part3">Next</Link> : <span>Next</span>}
         </button>
       </form>

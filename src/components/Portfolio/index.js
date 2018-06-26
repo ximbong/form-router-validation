@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./index.css";
 
 class Portfolio extends Component {
+  componentDidMount() {
+    this.props.handlePaging(3);
+  }
+
   handleChange = event => {
     const newState = {
       ...this.props.data,
@@ -44,7 +49,10 @@ class Portfolio extends Component {
           value={otherInfo}
           id="otherInfo"
         />
-        <button className="submitButton" disabled={!validity}>
+        <button className="submitButton previous">
+          <Link to="/part2">Previous</Link>
+        </button>
+        <button className="submitButton next" disabled={!validity}>
           <span>Submit</span>
         </button>
       </form>

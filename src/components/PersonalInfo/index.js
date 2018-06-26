@@ -6,6 +6,10 @@ import InputField from "../InputField";
 import "./index.css";
 
 class PersonalInfo extends Component {
+  componentDidMount() {
+    this.props.handlePaging(1);
+  }
+
   handleChange = event => {
     const fieldID = event.target.id;
     const newInfo = {
@@ -205,7 +209,7 @@ class PersonalInfo extends Component {
             handleChange={this.handleChange}
           />
         </div>
-        <button className="submitButton" disabled={!formValidity}>
+        <button className="submitButton next" disabled={!formValidity}>
           {formValidity ? <Link to="/part2">Next</Link> : <span>Next</span>}
         </button>
       </form>
