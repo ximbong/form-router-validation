@@ -13,18 +13,13 @@ a {
 }
 
 .wrapper {
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: #454e57;
   color: #fbffff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-family: "Roboto", sans-serif;
-}
-
-.content {
-  background: #454e57;
 }
 
 form {
@@ -55,7 +50,7 @@ form input {
   font-size: 100%;
   font-weight: 600;
   cursor: pointer;
-  margin: 20px 0;
+  margin: 40px 0;
 }
 
 .submitButton:disabled {
