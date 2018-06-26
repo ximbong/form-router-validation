@@ -210,7 +210,11 @@ class PersonalInfo extends Component {
           />
         </div>
         <button className="submitButton next" disabled={!formValidity}>
-          {formValidity ? <Link to="/part2">Next</Link> : <span>Next</span>}
+          {formValidity ? (
+            <Link to="/form-router-validation/part2">Next</Link>
+          ) : (
+            <span>Next</span>
+          )}
         </button>
       </form>
     );

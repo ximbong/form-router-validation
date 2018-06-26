@@ -50,7 +50,7 @@ class Portfolio extends Component {
           id="otherInfo"
         />
         <button className="submitButton previous">
-          <Link to="/part2">Previous</Link>
+          <Link to="/form-router-validation/part2">Previous</Link>
         </button>
         <button className="submitButton next" disabled={!validity}>
           <span>Submit</span>

@@ -81,12 +81,12 @@ class App extends Component {
         <div className="wrapper">
           <div className="content">
             <Route
-              path="/"
+              path="/form-router-validation/"
               render={() => <NavBar current_page={current_page} />}
             />
-            <Route path="/" component={Title} />
+            <Route path="/form-router-validation/" component={Title} />
             <Route
-              path="/"
+              path="/form-router-validation/"
               exact={true}
               render={() => (
                 <PersonalInfo
@@ -97,7 +97,7 @@ class App extends Component {
               )}
             />
             <Route
-              path="/part2"
+              path="/form-router-validation/part2"
               render={() => (
                 <Skill
                   data={skill}
@@ -107,7 +107,7 @@ class App extends Component {
               )}
             />
             <Route
-              path="/part3"
+              path="/form-router-validation/part3"
               render={() => (
                 <Portfolio
                   data={portfolio}

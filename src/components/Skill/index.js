@@ -152,10 +152,14 @@ class Skill extends Component {
           </div>
         </div>
         <button className="submitButton previous">
-          <Link to="/">Previous</Link>
+          <Link to="/form-router-validation/">Previous</Link>
         </button>
         <button className="submitButton next" disabled={!formValidity}>
-          {formValidity ? <Link to="/part3">Next</Link> : <span>Next</span>}
+          {formValidity ? (
+            <Link to="/form-router-validation/part3">Next</Link>
+          ) : (
+            <span>Next</span>
+          )}
         </button>
       </form>
     );
