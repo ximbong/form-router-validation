@@ -34,7 +34,7 @@ const Summary = ({ personalInfo, location, url }) => {
         <div className="zipcode">Zip Code: {zipcode}</div>
       </section>
       <section>
-        <div className="title">Work Location</div>
+        <div className="title">Perferred Work Location</div>
         <div>{locationString}</div>
       </section>
       <section>
