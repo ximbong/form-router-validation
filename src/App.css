@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700");
 
 * {
   margin: 0px;
@@ -30,7 +30,6 @@ form {
 }
 
 form input {
-  margin-bottom: 30px;
   width: 100%;
   border: 0;
   outline: 0;
@@ -67,7 +66,7 @@ form input {
 }
 
 .invalid {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #ce4737;
 }
 
 .valid {
