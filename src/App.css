@@ -23,6 +23,10 @@ a {
   font-family: "Roboto", sans-serif;
 }
 
+.content {
+  background: #454e57;
+}
+
 form {
   padding: 10px 15%;
   color: #c7ced6;
