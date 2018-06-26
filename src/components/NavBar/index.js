@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 
 import "./index.css";
 
-const NavBar = () => {
-  return (
-    <div className="navBar">
-      <li>
-        <Link to="/">Personal Information</Link>
-      </li>
-      <li>
-        <Link to="/part2">Skills and location</Link>
-      </li>
-      <li>
-        <Link to="/part3">Portfolio</Link>
-      </li>
-    </div>
-  );
+const NavBar = ({ current_page }) => {
+  const info_array = [
+    "Personal Information",
+    "Skills and location",
+    "Portfolio"
+  ];
+  const NavList = info_array.map((data, index) => {
+    return index + 1 === current_page ? (
+      <li className="selected">{data}</li>
+    ) : (
+      <li>{data}</li>
+    );
+  });
+  return <div className="navBar">{NavList}</div>;
 };
 
 export default NavBar;
