@@ -50,10 +50,10 @@ class App extends Component {
           discipline_4: false
         },
         location: {
-          vietnam: false,
-          thailand: false,
-          singapore: false,
-          malaysia: false
+          Vietnam: false,
+          Thailand: false,
+          Singapore: false,
+          Malaysia: false
         }
       },
       portfolio: {
