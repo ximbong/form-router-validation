@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import InputField from "../InputField";
+
 import "./index.css";
 
 class PersonalInfo extends Component {
@@ -46,22 +48,25 @@ class PersonalInfo extends Component {
     const zipcodeTest = /\d{4,8}/;
 
     const errors = {
-      fullname: fullnameTest.test(fullname),
-      email: emailTest.test(email),
-      email2: email2 === email,
-      phone: phoneTest.test(phone),
-      address: address.trim().length > 0,
-      country: countryTest.test(country),
-      state: state.trim().length > 0,
-      city: cityTest.test(city),
-      zipcode: zipcodeTest.test(zipcode)
+      fullname: fullnameTest.test(fullname) ? "" : "Please enter a valid name",
+      email: emailTest.test(email) ? "" : "Please enter a valid email address",
+      email2: email2 && email2 === email ? "" : "Your email doesn't match",
+      phone: phoneTest.test(phone) ? "" : "Please enter a valid phone number",
+      address: address.trim().length > 0 ? "" : "Please enter a valid address",
+      country: countryTest.test(country)
+        ? ""
+        : "Please enter a valid country name",
+      state: state.trim().length > 0 ? "" : "Please enter a valid state name",
+      city: cityTest.test(city) ? "" : "Please enter a valid city name",
+      zipcode: zipcodeTest.test(zipcode) ? "" : "Please enter a valid zipcode"
     };
 
     return errors;
   };
 
-  handleValidEffect = (userClick, truthy) => {
-    return !userClick || truthy ? "valid" : "invalid";
+  handleValidEffect = (userClick, errorMsg) => {
+    //no error returns empty string, therefore errorMsg truthy should be false
+    return !userClick || !errorMsg ? "valid" : "invalid";
   };
 
   handleSubmit = event => {
@@ -86,113 +91,118 @@ class PersonalInfo extends Component {
     } = this.props.data;
 
     const errors = this.validate(this.props.data.info);
-    const formValidity = !Object.values(errors).some(e => e === false);
+    const formValidity = !Object.values(errors).some(e => e !== ""); //it means some error msgs are not empty
 
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="sectionTitle">1. Personal information</div>
         <div className="basicInfo">
           <div className="leftCol">
-            <input
+            <InputField
               id="fullname"
               placeholder="Full name*"
               value={fullname}
-              onFocus={this.handleClickStatus}
-              onChange={this.handleChange}
-              className={this.handleValidEffect(
-                userClick.fullname,
-                errors.fullname
-              )}
+              handleChange={this.handleChange}
+              handleClickStatus={this.handleClickStatus}
+              handleValidEffect={this.handleValidEffect}
+              userClick={userClick.fullname}
+              error={errors.fullname}
+              errorMsg=""
             />
-            <input
+            <InputField
               id="email"
               placeholder="Email*"
               value={email}
-              onFocus={this.handleClickStatus}
-              onChange={this.handleChange}
-              className={this.handleValidEffect(userClick.email, errors.email)}
+              handleChange={this.handleChange}
+              handleClickStatus={this.handleClickStatus}
+              handleValidEffect={this.handleValidEffect}
+              userClick={userClick.email}
+              error={errors.email}
+              errorMsg=""
             />
-            <input
+            <InputField
               id="email2"
               placeholder="Re-enter email*"
               value={email2}
-              onFocus={this.handleClickStatus}
-              onChange={this.handleChange}
-              className={this.handleValidEffect(
-                userClick.email2,
-                errors.email2
-              )}
+              handleChange={this.handleChange}
+              handleClickStatus={this.handleClickStatus}
+              handleValidEffect={this.handleValidEffect}
+              userClick={userClick.email2}
+              error={errors.email2}
+              errorMsg=""
             />
           </div>
           <div className="rightCol">
-            <input
+            <InputField
               id="phone"
               placeholder="Phone*"
               value={phone}
-              onFocus={this.handleClickStatus}
-              onChange={this.handleChange}
-              className={this.handleValidEffect(userClick.phone, errors.phone)}
+              handleChange={this.handleChange}
+              handleClickStatus={this.handleClickStatus}
+              handleValidEffect={this.handleValidEffect}
+              userClick={userClick.phone}
+              error={errors.phone}
             />
           </div>
         </div>
         <div className="addressInfo">
-          <input
+          <InputField
             id="address"
             placeholder="Address*"
             value={address}
-            onFocus={this.handleClickStatus}
-            onChange={this.handleChange}
-            className={this.handleValidEffect(
-              userClick.address,
-              errors.address
-            )}
+            handleChange={this.handleChange}
+            handleClickStatus={this.handleClickStatus}
+            handleValidEffect={this.handleValidEffect}
+            userClick={userClick.address}
+            error={errors.address}
           />
           <div className="fourCols">
-            <input
+            <InputField
               id="country"
               placeholder="Country*"
               value={country}
-              onFocus={this.handleClickStatus}
-              onChange={this.handleChange}
-              className={this.handleValidEffect(
-                userClick.country,
-                errors.country
-              )}
+              handleChange={this.handleChange}
+              handleClickStatus={this.handleClickStatus}
+              handleValidEffect={this.handleValidEffect}
+              userClick={userClick.country}
+              error={errors.country}
             />
-            <input
+            <InputField
               id="state"
               placeholder="State*"
               value={state}
-              onFocus={this.handleClickStatus}
-              onChange={this.handleChange}
-              className={this.handleValidEffect(userClick.state, errors.state)}
+              handleChange={this.handleChange}
+              handleClickStatus={this.handleClickStatus}
+              handleValidEffect={this.handleValidEffect}
+              userClick={userClick.state}
+              error={errors.state}
             />
-            <input
+            <InputField
               id="city"
               placeholder="City*"
               value={city}
-              onFocus={this.handleClickStatus}
-              onChange={this.handleChange}
-              className={this.handleValidEffect(userClick.city, errors.city)}
+              handleChange={this.handleChange}
+              handleClickStatus={this.handleClickStatus}
+              handleValidEffect={this.handleValidEffect}
+              userClick={userClick.city}
+              error={errors.city}
             />
-            <input
+            <InputField
               id="zipcode"
               placeholder="Zip code*"
               value={zipcode}
-              onFocus={this.handleClickStatus}
-              onChange={this.handleChange}
-              className={this.handleValidEffect(
-                userClick.zipcode,
-                errors.zipcode
-              )}
+              handleChange={this.handleChange}
+              handleClickStatus={this.handleClickStatus}
+              handleValidEffect={this.handleValidEffect}
+              userClick={userClick.zipcode}
+              error={errors.zipcode}
             />
           </div>
-          <input
+          <InputField
             id="notice"
             placeholder="How did you hear about us"
-            onFocus={this.handleClickStatus}
             value={notice}
-            onChange={this.handleChange}
+            handleChange={this.handleChange}
           />
         </div>
         <button className="submitButton" disabled={!formValidity}>

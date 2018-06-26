@@ -1,0 +1,9 @@
+.input-field {
+  margin-bottom: 20px;
+}
+
+.error-msg {
+  margin-top: 3px;
+  font-size: 75%;
+  height: 14px;
+}
