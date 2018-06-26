@@ -12,3 +12,7 @@ form textarea {
 form textarea:focus {
   border: 1px solid #48adf5;
 }
+
+#url {
+  margin-bottom: 30px;
+}

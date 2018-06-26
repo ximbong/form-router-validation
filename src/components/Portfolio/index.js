@@ -19,9 +19,10 @@ class Portfolio extends Component {
   render() {
     const { url, otherInfo } = this.props.data;
     // eslint-disable-next-line
-    const formValidity = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(
+    const validity = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(
       url
     );
+    const validityEffect = !url || validity ? "valid" : "invalid";
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -35,6 +36,7 @@ class Portfolio extends Component {
           onChange={this.handleChange}
           value={url}
           id="url"
+          className={validityEffect}
         />
         <textarea
           placeholder="Anything else"
@@ -42,7 +44,7 @@ class Portfolio extends Component {
           value={otherInfo}
           id="otherInfo"
         />
-        <button className="submitButton" disabled={!formValidity}>
+        <button className="submitButton" disabled={!validity}>
           <span>Submit</span>
         </button>
       </form>
