@@ -15,3 +15,9 @@
   justify-content: center;
   font-weight: 300;
 }
+
+.selected {
+  font-weight: 600 !important;
+  text-decoration: underline;
+  background: #207ec1 !important;
+}
