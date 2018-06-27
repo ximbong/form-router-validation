@@ -3,3 +3,12 @@
   font-size: 80%;
   color: #8b929c;
 }
+
+.details b {
+  color: #ce4737;
+  letter-spacing: 0.5px;
+}
+
+.hidden {
+  opacity: 0;
+}

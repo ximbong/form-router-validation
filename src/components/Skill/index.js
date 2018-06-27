@@ -116,8 +116,12 @@ class Skill extends Component {
             </div>
             <div className="details">
               You must be legally authorized to work without visa sponsorship in
-              the location(s) you choose. <br />
-              <b> You have to choose at least one.</b>
+              the location(s) you choose.
+              <br />
+              <br />
+              <b className={!formValidity ? "" : "hidden"}>
+                You have to choose at least one.
+              </b>
             </div>
             <div className="checkboxDiv">
               <CheckboxField
